@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hackerkernel/models/product.dart';
@@ -67,12 +66,11 @@ class _AddProductState extends State<AddProduct> {
             ElevatedButton(
                 onPressed: () {
                   if (pickedImage != null) {
-                    products.add(Product(
+                    streamController.add(Product(
                         id: 0,
                         productName: nameController.text,
                         price: priceController.text,
                         image: pickedImage!.path));
-                    setState(() {});
                     Navigator.pop(context);
                   } else {
                     Fluttertoast.showToast(msg: "Please select image");
