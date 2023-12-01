@@ -29,7 +29,7 @@ class _LoginState extends State<Login> {
             children: [
               Image.asset(
                 "assets/images/login.jpg",
-                height: 400,
+                height: 350,
               ),
               const Align(
                 alignment: Alignment.centerLeft,

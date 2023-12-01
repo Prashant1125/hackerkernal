@@ -67,6 +67,20 @@ class _HomePageState extends State<HomePage> {
             child: const Icon(
               Icons.search,
             ),
+          ),
+          Container(
+            height: 40,
+            width: 40,
+            margin: const EdgeInsets.all(5),
+            decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.grey,
+                ),
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10)),
+            child: const Icon(
+              Icons.logout,
+            ),
           )
         ],
       ),
