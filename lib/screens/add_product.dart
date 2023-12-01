@@ -25,59 +25,61 @@ class _AddProductState extends State<AddProduct> {
       appBar: AppBar(
         title: const Text("Add Product"),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            CstmTxtField(
-              controller: nameController,
-              hintText: "Enter Product Name",
-            ),
-            CstmTxtField(
-              controller: priceController,
-              hintText: "Enter Product Price",
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            pickedImage != null
-                ? Image.file(
-                    File(pickedImage!.path),
-                    height: 100,
-                  )
-                : IconButton(
-                    onPressed: () {
-                      picker
-                          .pickImage(source: ImageSource.gallery)
-                          .then((value) {
-                        pickedImage = value;
-                        setState(() {});
-                      });
-                    },
-                    icon: const Icon(
-                      Icons.add_photo_alternate,
-                      size: 80,
-                      color: Colors.grey,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              CstmTxtField(
+                controller: nameController,
+                hintText: "Enter Product Name",
+              ),
+              CstmTxtField(
+                controller: priceController,
+                hintText: "Enter Product Price",
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              pickedImage != null
+                  ? Image.file(
+                      File(pickedImage!.path),
+                      height: 100,
+                    )
+                  : IconButton(
+                      onPressed: () {
+                        picker
+                            .pickImage(source: ImageSource.gallery)
+                            .then((value) {
+                          pickedImage = value;
+                          setState(() {});
+                        });
+                      },
+                      icon: const Icon(
+                        Icons.add_photo_alternate,
+                        size: 80,
+                        color: Colors.grey,
+                      ),
                     ),
-                  ),
-            const SizedBox(
-              height: 10,
-            ),
-            ElevatedButton(
-                onPressed: () {
-                  if (pickedImage != null) {
-                    streamController.add(Product(
-                        id: 0,
-                        productName: nameController.text,
-                        price: priceController.text,
-                        image: pickedImage!.path));
-                    Navigator.pop(context);
-                  } else {
-                    Fluttertoast.showToast(msg: "Please select image");
-                  }
-                },
-                child: const Text("Add Product"))
-          ],
+              const SizedBox(
+                height: 10,
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    if (pickedImage != null) {
+                      streamController.add(Product(
+                          id: 0,
+                          productName: nameController.text,
+                          price: priceController.text,
+                          image: pickedImage!.path));
+                      Navigator.pop(context);
+                    } else {
+                      Fluttertoast.showToast(msg: "Please select image");
+                    }
+                  },
+                  child: const Text("Add Product"))
+            ],
+          ),
         ),
       ),
     );
