@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hackerkernel/screens/homepage.dart';
-import 'package:hackerkernel/screens/loader.dart';
 import 'package:hackerkernel/screens/login.dart';
 import 'package:hackerkernel/shared_pref/shared_pref.dart';
 import 'package:hackerkernel/utils/constants.dart';
